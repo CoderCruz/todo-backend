@@ -17,6 +17,12 @@ enum Color {
   red
   blue
   green
+  orange
+  yellow
+  indigo
+  violet
+  pink
+  brown
 }
 
 model Task {

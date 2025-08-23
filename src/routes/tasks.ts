@@ -52,7 +52,7 @@ tasks.delete('/:id', async (req, res) => {
     const id = parseId(req.params.id);
     if (id === null) return res.status(400).json({ error: 'Invalid id' });
 
-    await prisma.task.delete({ where: { id } });
+    const { count } = await prisma.task.deleteMany({ where: { id } });
     return res.status(204).end();
   } catch (e) {
     console.error('Error deleting task', e);

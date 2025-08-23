@@ -6,10 +6,24 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../generated/prisma"
 }
 
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
+}
+
+enum Color {
+  red
+  blue
+  green
+}
+
+model Task {
+  id        Int      @id @default(autoincrement())
+  title     String
+  color     Color
+  completed Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

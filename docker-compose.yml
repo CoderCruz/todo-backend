@@ -1,0 +1,19 @@
+services:
+  db:
+    image: mysql:8
+    container_name: todo_mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: Codeforgood!
+      MYSQL_DATABASE: todo_db
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3306:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-ppassword"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+volumes:
+  db_data:

@@ -65,7 +65,7 @@ npm install
 npx prisma migrate dev --name init
 
 # Alternatively during rapid iteration:
-# npx prisma db push && npx prisma generate
+npx prisma db push && npx prisma generate
 
 # Optional: inspect data
 npx prisma studio
